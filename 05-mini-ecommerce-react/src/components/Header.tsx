@@ -1,5 +1,6 @@
+import CartIconButton from "@/features/cart/components/CartIconButton";
 import { mainNavItems } from "@/routes";
-import { House, ShoppingBasket } from "lucide-react";
+import { House } from "lucide-react";
 import { Link } from "react-router";
 
 function Header() {
@@ -22,7 +23,7 @@ function Header() {
             </ul>
         </nav>
         <div className="flex items-center space-x-2">
-            <ShoppingBasket />
+            <CartIconButton />
         </div>
       </header>
     )
