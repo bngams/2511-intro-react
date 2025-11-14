@@ -1,12 +1,16 @@
 import { useNavigate } from "react-router";
 import ReactIcon from "@/assets/react.svg";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 function Home() {
     const navigate = useNavigate();
 
+    const [btnVariant, setBtnVariant] = useState<'default' | 'destructive'>('destructive');
+
     function scrollTo(elementId: string) {
         document.getElementById(elementId)?.scrollIntoView();
+        setBtnVariant('default');
     }
 
     return (
@@ -18,7 +22,7 @@ function Home() {
                 </div>
                 <p>My super brand!</p>
                 <div className="flex flex-col space-y-4 mt-4 mx-auto w-max">
-                <Button onClick={() => navigate("/products")}>Buy Products</Button>
+                <Button onClick={() => navigate("/products")} variant={btnVariant}>Buy Products</Button>
                 <Button onClick={() => scrollTo("intro")}>Continue</Button>
                 </div>
             </div>

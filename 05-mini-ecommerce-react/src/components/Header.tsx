@@ -3,10 +3,10 @@ import { mainNavItems } from "@/routes";
 import { House } from "lucide-react";
 import { Link } from "react-router";
 
-function Header() {
+function Header({ className }: { className?: string }) {
 
     return (
-      <header className="flex justify-between items-center p-4 mb-4 bg-gray-200">
+      <header className={`flex justify-between items-center p-4 mb-4 bg-gray-200 ${className}`}>
         <div>
             <Link to="/home" className="flex items-center space-x-2">
                 <House size={32} />

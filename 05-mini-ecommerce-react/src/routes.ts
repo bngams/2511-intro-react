@@ -1,8 +1,10 @@
-import Products from "./features/products/pages/Products";
-import Cart from "./features/cart/pages/Cart";
 import type { NavItem } from "./models/NavItem";
 import About from "./pages/About";
 import Home from "./pages/Home";
+import { lazy } from "react";
+
+const ProductsLazy = lazy(() => import("./features/products/pages/Products"));
+const CartLazy = lazy(() => import("./features/cart/pages/Cart"));
 
 export const mainNavItems: NavItem[] = [
     {
@@ -17,12 +19,12 @@ export const mainNavItems: NavItem[] = [
     },
     {
         path: '/products',
-        component: Products,
+        component: ProductsLazy,
         label: 'Products',
     },
     {
         path: '/cart',
-        component: Cart,
+        component: CartLazy,
         label: 'Cart',
     }
 ];

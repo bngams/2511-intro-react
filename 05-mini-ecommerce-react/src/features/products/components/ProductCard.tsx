@@ -1,11 +1,13 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Product } from "../models/Product";
 import { CartContext } from "@/features/cart/contexts/CartContext";
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { Badge } from "@/components/ui/badge";
 
 //ProductCard(props: {product: Product})
-function ProductCard({ product } : {product: Product}) {
+function ProductCard({ product, children } : {product: Product, children?: React.ReactNode}) {
+
+    const customSlotSpecialOffer = React.Children.toArray(children).find(child => child.props?.slot === "offer-title");
 
     const { addToCart, cart } = useContext(CartContext);
 
@@ -28,6 +30,7 @@ function ProductCard({ product } : {product: Product}) {
           <CardHeader>
             <CardTitle>{product.title}</CardTitle>
             <CardDescription>{product.price} €</CardDescription>
+            {customSlotSpecialOffer}
           </CardHeader>
           <CardContent className="flex justify-center flex-col">
             <div className="flex justify-center">

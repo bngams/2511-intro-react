@@ -1,10 +1,17 @@
 import type { Product } from "@/features/products/models/Product";
-import React, { useEffect, useMemo } from "react";
+import React, { use, useEffect, useMemo } from "react";
 import { CartContext } from "../contexts/CartContext";
 import type { Cart, CartItem } from "../models/CartItem";
 
 function CartProvider({children} : {children: React.ReactNode}) {
   const [items, setItems] = React.useState<CartItem[]>([]);
+
+  // Alternative with useEffect to track items changes (not needed with useMemo)
+  // const [cartWithState, setCartWithState] = React.useState<Cart>({ items: [], totalPrice: 0 });
+  // useEffect(() => {
+  //   const totalPrice = items.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
+  //   setCartWithState({ items, totalPrice });
+  // }, [items]);
 
   // Calculate total price whenever items change
   const cart: Cart = useMemo(() => {
