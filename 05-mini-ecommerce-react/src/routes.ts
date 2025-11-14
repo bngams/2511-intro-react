@@ -13,7 +13,8 @@ export const mainNavItems: NavItem[] = [
         path: '/about',
         component: About,
         label: 'About',
-    },{
+    },
+    {
         path: '/products',
         component: Products,
         label: 'Products',
