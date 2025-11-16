@@ -5,25 +5,25 @@ function TodoFetch() {
 
     const [todos, setTodos] = useState([]);
 
-    useEffect(() => {
-        const myRequest = fetch('https://dummyjson.com/todos?limit=10');
+    // useEffect(() => {
+    //     const myRequest = fetch('https://dummyjson.com/todos?limit=10');
 
-        myRequest.then((response) => {
-            console.log('Response received', response);
-            response.json().then((json) => {
-                console.log('JSON parsed', json);
-                setTodos(json.todos);
-            });
-        });
+    //     myRequest.then((response) => {
+    //         console.log('Response received', response);
+    //         response.json().then((json) => {
+    //             console.log('JSON parsed', json);
+    //             setTodos(json.todos);
+    //         });
+    //     });
 
 
-        fetch('https://dummyjson.com/todos?limit=10').then((response) => {
-            return response.json()
-        }).then((json) => {
-            setTodos(json.todos);
-        });
+    //     fetch('https://dummyjson.com/todos?limit=10').then((response) => {
+    //         return response.json()
+    //     }).then((json) => {
+    //         setTodos(json.todos);
+    //     });
 
-    }, []) // empty array => run once at component mount
+    // }, []) // empty array => run once at component mount
 
     useEffect(() => {
         const fetchData = async () => {

@@ -29,7 +29,6 @@ function TodoApp() {
         return (json.todos);
     };
 
-
     useEffect(() => {
        console.log('avant le loadTodos');
        if(!dataLoad) {

@@ -1,4 +1,10 @@
+import { use, useEffect } from "react";
+
 function TodoList({todos}) {
+
+    useEffect(() => {
+        console.log('TodoList updated', todos);
+    }, [todos]);
 
     return (
         <div>
