@@ -1,3 +1,4 @@
+import Auth from "./features/auth/pages/Auth";
 import type { NavItem } from "./models/NavItem";
 import About from "./pages/About";
 import Home from "./pages/Home";
@@ -26,5 +27,10 @@ export const mainNavItems: NavItem[] = [
         path: '/cart',
         component: CartLazy,
         label: 'Cart',
+    },
+    {
+        path: '/auth',
+        component: Auth,
+        label: 'Auth',
     }
 ];
